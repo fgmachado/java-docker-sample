@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-docker-sample
+  labels:
+    name: java-docker-sample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-docker-sample
+  template:
+    metadata:
+      labels:
+        app: java-docker-sample
+    spec:
+      containers:
+        - name: java-docker-sample
+          image: fgmachado/java-docker-sample
+          ports:
+            - containerPort: 8080
